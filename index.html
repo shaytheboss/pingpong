@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>רישום לטורניר פינג פונג</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            direction: rtl;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        input, button {
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>רישום לטורניר פינג פונג לזוגות</h1>
+        <form id="registrationForm">
+            <input type="text" id="player1" placeholder="שם שחקן 1" required><br>
+            <input type="text" id="player2" placeholder="שם שחקן 2" required><br>
+            <input type="text" id="tribe" placeholder="שם השבט" required><br>
+            <button type="submit">הרשם</button>
+        </form>
+        <p id="response"></p>
+    </div>
+
+    <script>
+        const form = document.getElementById('registrationForm');
+        form.addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const player1 = document.getElementById('player1').value;
+            const player2 = document.getElementById('player2').value;
+            const tribe = document.getElementById('tribe').value;
+
+            const teamData = {
+                player1: player1,
+                player2: player2,
+                tribe: tribe,
+            };
+
+            const response = await saveTeam(teamData);
+            document.getElementById('response').innerText = response;
+        });
+
+        async function saveTeam(teamData) {
+            // Placeholder for saving data, here you will implement GitHub API logic.
+            console.log("Saving team data to GitHub:", teamData);
+
+            // Simulated response for now.
+            return "ההרשמה הצליחה!";
+        }
+    </script>
+</body>
+</html>
